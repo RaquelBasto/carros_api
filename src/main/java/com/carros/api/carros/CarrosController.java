@@ -1,10 +1,11 @@
-package com.carros.api;
+package com.carros.api.carros;
 
 import com.carros.domain.Carro;
 import com.carros.domain.CarroService;
 import com.carros.domain.dto.CarroDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -25,27 +26,8 @@ public class CarrosController {
 
     @GetMapping("/{id}")
     public ResponseEntity getCarrosById(@PathVariable("id") Long id) {
-        //return new ResponseEntity<>(service.getCarroById(id),HttpStatus.OK); // como está passando o objeto no OK ja chama o build
         CarroDTO carro = service.getCarroById(id);
         return ResponseEntity.ok(carro);
-/*
-        if (carro.isPresent()){
-            return ResponseEntity.ok(carro.get()); // como está passando o objeto no OK ja chama o build
-        }else{
-            return ResponseEntity.notFound().build();
-        }
- */
-/*
-        //if ternario
-        return carro.isPresent() ?
-                ResponseEntity.ok(carro.get()) :
-                ResponseEntity.notFound().build();
-
-        //lambda
-        return carro //vai ser chamado apenas se existir o objeto
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build()); // se não existir o registro
- */
     }
 
     //iterable porque é lista
@@ -86,11 +68,6 @@ public class CarrosController {
     public ResponseEntity delete(@PathVariable("id") Long id) {
 
         service.deleteCarro(id);
-/*
-        return ok ?
-                ResponseEntity.ok(id) :
-                ResponseEntity.notFound().build();
- */
         return ResponseEntity.ok(id);
     }
 

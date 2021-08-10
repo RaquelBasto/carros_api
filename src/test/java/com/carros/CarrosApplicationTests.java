@@ -3,8 +3,9 @@ package com.carros;
 import com.carros.domain.Carro;
 import com.carros.domain.CarroService;
 import com.carros.domain.dto.CarroDTO;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -17,7 +18,7 @@ import static junit.framework.TestCase.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-class CarrosApplicationTests {
+public class CarrosApplicationTests {
 
     @Autowired
     private CarroService carroService;
@@ -29,15 +30,25 @@ class CarrosApplicationTests {
         carro.setNome("Ferrari");
         carro.setTipo("Esportivo");
 
-        CarroDTO carroDTO = carroService.save(carro);
+        CarroDTO carroSave = carroService.save(carro);
 
-        assertNotNull(carroDTO);
+        assertNotNull(carroSave);
 
         Long id = carro.getId();
         assertNotNull(id);
 
         //Buscar o objeto
-        CarroDTO op = carroService.getCarroById(id);
+        CarroDTO carroId= carroService.getCarroById(id);
+        assertNotNull(carroId);
+
+        assertEquals("Ferrari", carro.getNome());
+        assertEquals("Esportivo", carro.getTipo());
+
+/*        //deletar o carro
+        carroService.deleteCarro(id);
+
+        //verificar se deletou
+        assertNull(carroService.getCarroById(id));*/
 	}
 /*
     @Test

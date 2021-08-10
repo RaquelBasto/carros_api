@@ -1,11 +1,6 @@
 package com.carros.domain;
 
-import com.carros.domain.dto.CarroDTO;
 import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import org.modelmapper.ModelMapper;
 
 import javax.persistence.*;
 

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController // identifica o método rest
 @RequestMapping("/") // mapeia o caminho
-public class indexController {
+public class IndexController {
 
     @GetMapping
     public String hello(){
