@@ -42,12 +42,11 @@ public class CarrosController {
 
     @PostMapping
     public ResponseEntity post(@RequestBody Carro carro) {
-        CarroDTO c = service.save(carro);
+        CarroDTO c = service.insert(carro);
 
         URI location = getUri(c.getId());
-        return ResponseEntity.created(null).build();
+        return ResponseEntity.created(location).build();
     }
-    //TODO retornar bad request. Video 41
 
     private URI getUri(Long id){
         return ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
@@ -70,5 +69,6 @@ public class CarrosController {
         service.deleteCarro(id);
         return ResponseEntity.ok(id);
     }
+    //TODO criar controller do firebase
 
 }

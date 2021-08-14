@@ -30,7 +30,7 @@ public class CarrosApplicationTests {
         carro.setNome("Ferrari");
         carro.setTipo("Esportivo");
 
-        CarroDTO carroSave = carroService.save(carro);
+        CarroDTO carroSave = carroService.insert(carro);
 
         assertNotNull(carroSave);
 
@@ -49,6 +49,7 @@ public class CarrosApplicationTests {
 
         //verificar se deletou
         assertNull(carroService.getCarroById(id));*/
+//TODO finalizar os testes
 	}
 /*
     @Test
