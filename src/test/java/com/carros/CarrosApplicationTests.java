@@ -1,17 +1,13 @@
 package com.carros;
 
-import com.carros.domain.Carro;
-import com.carros.domain.CarroService;
-import com.carros.domain.dto.CarroDTO;
+import com.carros.api.carros.Carro;
+import com.carros.api.carros.CarroService;
+import com.carros.api.carros.CarroDTO;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import java.util.List;
-import java.util.Optional;
 
 import static junit.framework.TestCase.*;
 
